@@ -1,0 +1,173 @@
+{% extends 'base.html' %} {% block title %} LOGIN {% endblock %} {% block
+content %}
+
+<!-- SECTION BANNER -->
+<section class="hero is-white">
+  <div
+    class="hero-body has-text-centered"
+    style="padding-bottom: 1rem; margin: auto"
+  >
+    <h1 class="title is-sparta">SWEETER</h1>
+    <h3 class="subtitle is-sparta">The sweetest site</h3>
+  </div>
+</section>
+<!-- END SECTION -->
+
+<!-- SECTION BOX-LOGIN -->
+<section class="section">
+  <div class="container">
+    <div class="box" style="max-width: 480px; margin: auto">
+      <article class="media">
+        <div class="media-content">
+          <!-- SIGN IN BOX -->
+          <div class="content" id="div-sign-in">
+            <div class="field has-addons">
+              <div class="control has-icons-left" style="width: 100%">
+                <input
+                  id="input-username"
+                  class="input"
+                  type="text"
+                  placeholder="id"
+                />
+                <span class="icon is-small is-left"
+                  ><i class="fa fa-user"></i
+                ></span>
+              </div>
+            </div>
+
+            <p id="help-id-login" class="help is-danger"></p>
+
+            <div class="field">
+              <div class="control has-icons-left">
+                <input
+                  id="input-password"
+                  class="input"
+                  type="password"
+                  placeholder="password"
+                />
+                <span class="icon is-small is-left"
+                  ><i class="fa fa-lock"></i
+                ></span>
+              </div>
+            </div>
+            <p id="help-password-login" class="help is-danger"></p>
+            <div class="has-text-centered">
+              <nav class="level is-mobile">
+                <button class="level-item button is-sparta" onclick="sign_in()">
+                  Sign In
+                </button>
+                <button
+                  class="level-item button is-sparta is-outlined"
+                  onclick="clear_value()"
+                >
+                  Clear
+                </button>
+              </nav>
+              <hr />
+              <h4 class="mb-3">If you have not yet signed up</h4>
+              <nav class="level is-mobile">
+                <button
+                  class="level-item button is-sparta is-outlined"
+                  onclick="toggle_sign_up()"
+                >
+                  Sign Up
+                </button>
+              </nav>
+            </div>
+          </div>
+
+          <!-- SIGN UP BOX -->
+          <div id="sign-up-box">
+            <div class="mb-5">
+              <div class="field">
+                <div class="content">
+                  <div class="field has-addons">
+                    <div class="control has-icons-left" style="width: 100%">
+                      <input
+                        id="input-username-sign-up"
+                        class="input"
+                        type="text"
+                        placeholder="id"
+                      />
+                      <span class="icon is-small is-left"
+                        ><i class="fa fa-user"></i
+                      ></span>
+                    </div>
+                    <div id="btn-check-dup" class="control">
+                      <button class="button is-sparta" onclick="check_dup()">
+                        Check your id
+                      </button>
+                    </div>
+                  </div>
+                  <p id="help-id" class="help">
+                    For your id, please enter 2-10 English characters, numbers,
+                    or the following special characters (._-)
+                  </p>
+                  <p id="help-id-login" class="help is-danger"></p>
+
+                  <div class="field">
+                    <div class="control has-icons-left">
+                      <input
+                        id="input-password-sign-up"
+                        class="input"
+                        type="password"
+                        placeholder="password"
+                      />
+                      <span class="icon is-small is-left"
+                        ><i class="fa fa-lock"></i
+                      ></span>
+                    </div>
+                    <p id="help-password" class="help">
+                      For your password, please enter 8-20 English characters,
+                      numbers, or the following special characters (!@#$%^&*)
+                    </p>
+                  </div>
+                </div>
+                <div class="control has-icons-left" style="width: 100%">
+                  <input
+                    id="input-password2"
+                    class="input"
+                    type="password"
+                    placeholder="Confirm your password"
+                  />
+                  <span class="icon is-small is-left"
+                    ><i class="fa fa-lock"></i
+                  ></span>
+                </div>
+                <p id="help-password2" class="help">
+                  Please enter in your password again
+                </p>
+              </div>
+            </div>
+            <nav class="level is-mobile">
+              <button class="level-item button is-sparta" onclick="sign_up()">
+                Sign Up
+              </button>
+              <button
+                class="level-item button is-sparta is-outlined"
+                onclick="toggle_sign_up()"
+              >
+                Cancel
+              </button>
+              <button
+                class="level-item button is-sparta is-outlined"
+                onclick="clear_value()"
+              >
+                Clear
+              </button>
+            </nav>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- END SECTION -->
+<script>
+  $(document).ready(function () {
+    $("#sign-up-box").toggleClass("is-hidden");
+  });
+</script>
+<script src="{{url_for('static', filename='js/login.js')}}"></script>
+{% endblock %}
